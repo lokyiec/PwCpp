@@ -46,7 +46,6 @@ int factorial(int n) {
 
 int main() {
     int choice;
-    bool menu = true;
 
     cout << "\nWybierz jedna z ponizszych opcji:\n";
     cout << "1: zadanie 1\n"
@@ -56,108 +55,104 @@ int main() {
             "5: zadanie 5\n"
             "6: Wyjscie\n";
 
-    cout << "Wybrana opcja: ";
-    cin >> choice;
-
-    if (menu) {
-
-        switch (choice) {
-            case 1:
-                cout << "\n*********************************\n"
-                        "*********** zadanie 1 ***********\n"
-                        "*********************************\n\n";
-
-                float y1;
-                int y2;
-
-                cout << "Podaj dwie liczby:\n"; cin >> y1 >> y2;
-                cout << "\n" << y1 << " do potegi " << y2 << " = " << potega(y1, y2) << "\n\n";
-                cout << y1 << " + " << y2 << " = " << y1 + y2 << "\n\n";
-
-                break;
-
-            case 2:
-                cout << "\n*********************************\n"
-                        "*********** zadanie 2 ***********\n"
-                        "*********************************\n\n";
-
-                int zad2;
-
-                cout << "Podaj nr wyrazu ciągu fibbonaciego: ";  cin >> zad2;
-                cout << "\nWyraz: " << zad2 << " ciagu fibbonaciego to: " << fib1(zad2) << "\n\n";
-
-                break;
-
-            case 3:
-                cout << "\n*********************************\n"
-                        "*********** zadanie 3 ***********\n"
-                        "*********************************\n\n";
-
-                double x1, x2;
-                int operation;
-
-                cout << "Podaj dwie liczby:\n";
-                cout << "a = "; cin >> x1;
-                cout << "b = "; cin >> x2;
-                cout << "Jakie dzialanie chcesz wykonac: 1 - suma, 2 - roznica, 3 - iloczyn, 4 - iloraz\n"; cin >> operation;
-
-                switch (operation) {
-                    case 1:
-                        cout << x1 << " + " << x2 << " = " << x1 + x2 << "\n";
-                        break;
-
-                    case 2:
-                        cout << x1 << " - " << x2 << " = " << x1 - x2 << "\n";
-                        break;
-
-                    case 3:
-                        cout << x1 << " * " << x2 << " = " << x1 * x2 << "\n";
-                        break;
-
-                    case 4:
-                        cout << x1 << " / " << x2 << " = " << x1 / x2 << "\n";
-                        break;
-
-                    default:
-                        cout << "Nie wybrano poprawnego dzialania!";
-                        break;
-                }
-
-                break;
-
-            case 4:
-                cout << "\n*********************************\n"
-                        "*********** zadanie 4 ***********\n"
-                        "*********************************\n\n";
-
-                int zad4;
-
-                cout << "Podaj nr wyrazu ciągu fibbonaciego rekurencyjnie: ";  cin >> zad4;
-                cout << "\nWyraz: " << zad4 << " ciagu fibbonaciego to: " << fib2(zad4) << "\n\n";
-
-                break;
-
-            case 5:
-                cout << "\n*********************************\n"
-                        "*********** zadanie 5 ***********\n"
-                        "*********************************\n\n";
-
-                int zad5;
-
-                cout << "Podaj liczbe naturalna: ";  cin >> zad5;
-                cout << "\nSilnia rekurencyjnie dla " << zad5 << " = " << factorial(zad5) << "\n\n";
-
-                break;
+    cout << "Wybrana opcja: "; cin >> choice;
 
 
-            case 6:
-                return 0;
+    switch (choice) {
+        case 1:
+            cout << "\n*********************************\n"
+                    "*********** zadanie 1 ***********\n"
+                    "*********************************\n\n";
 
-            default:
-                cout << "Wybor musi byc z przedzialu 1-6\n\n";
-                break;
-        }
+            float y1;
+            int y2;
 
+            cout << "Podaj dwie liczby:\n"; cin >> y1 >> y2;
+            cout << "\n" << y1 << " do potegi " << y2 << " = " << potega(y1, y2) << "\n\n";
+            cout << y1 << " + " << y2 << " = " << y1 + y2 << "\n\n";
+
+            break;
+
+        case 2:
+            cout << "\n*********************************\n"
+                    "*********** zadanie 2 ***********\n"
+                    "*********************************\n\n";
+
+            int zad2;
+
+            cout << "Podaj nr wyrazu ciągu fibbonaciego: ";  cin >> zad2;
+            cout << "\nWyraz: " << zad2 << " ciagu fibbonaciego to: " << fib1(zad2) << "\n\n";
+
+            break;
+
+        case 3:
+            cout << "\n*********************************\n"
+                    "*********** zadanie 3 ***********\n"
+                    "*********************************\n\n";
+
+            double x1, x2;
+            int operation;
+
+            cout << "Podaj dwie liczby:\n";
+            cout << "a = "; cin >> x1;
+            cout << "b = "; cin >> x2;
+            cout << "Jakie dzialanie chcesz wykonac: 1 - suma, 2 - roznica, 3 - iloczyn, 4 - iloraz\n"; cin >> operation;
+
+            switch (operation) {
+                case 1:
+                    cout << x1 << " + " << x2 << " = " << x1 + x2 << "\n";
+                    break;
+
+                case 2:
+                    cout << x1 << " - " << x2 << " = " << x1 - x2 << "\n";
+                    break;
+
+                case 3:
+                    cout << x1 << " * " << x2 << " = " << x1 * x2 << "\n";
+                    break;
+
+                case 4:
+                    cout << x1 << " / " << x2 << " = " << x1 / x2 << "\n";
+                    break;
+
+                default:
+                    cout << "Nie wybrano poprawnego dzialania!";
+                    break;
+            }
+
+            break;
+
+        case 4:
+            cout << "\n*********************************\n"
+                    "*********** zadanie 4 ***********\n"
+                    "*********************************\n\n";
+
+            int zad4;
+
+            cout << "Podaj nr wyrazu ciągu fibbonaciego rekurencyjnie: ";  cin >> zad4;
+            cout << "\nWyraz: " << zad4 << " ciagu fibbonaciego to: " << fib2(zad4) << "\n\n";
+
+            break;
+
+        case 5:
+            cout << "\n*********************************\n"
+                    "*********** zadanie 5 ***********\n"
+                    "*********************************\n\n";
+
+            int zad5;
+
+            cout << "Podaj liczbe naturalna: ";  cin >> zad5;
+            cout << "\nSilnia rekurencyjnie dla " << zad5 << " = " << factorial(zad5) << "\n\n";
+
+            break;
+
+
+        case 6:
+            return 0;
+
+        default:
+            cout << "Wybor musi byc z przedzialu 1-6\n\n";
+            break;
     }
 
 }
