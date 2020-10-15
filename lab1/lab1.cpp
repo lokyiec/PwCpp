@@ -14,13 +14,13 @@ int main() {
             "4: zadanie 4\n"
             "5: Wyjscie\n";
 
-    cout << "Wybrana opcja (1, 2, 3 lub 4): ";
+    cout << "Wybrana opcja: ";
     cin >> choice;
 
     if (menu) {
 
         switch (choice) {
-            case 1:
+            case 1: {
                 cout << "\n*********************************\n"
                         "*********** zadanie 1 ***********\n"
                         "*********************************\n\n";
@@ -31,16 +31,14 @@ int main() {
                 cout << "Hello, World!" << endl;
                 cout << "I love programming!" << endl;
 
-                int myVariable;
-                myVariable = 10;
+                int myVariable = 10;
                 cout << myVariable;
 
                 if (10 > 5) {
                     cout << "Warunek jest prawdziwy" << endl;
                 }
 
-                int num;
-                num = 20;
+                int num = 20;
                 if (num > 5) {
                     cout << "Wiecej niz 5\n";
                     if (num <= 45) {
@@ -56,6 +54,7 @@ int main() {
 
 
                 break;
+            }
 
             case 2:
                 cout << "\n*********************************\n"

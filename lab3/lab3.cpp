@@ -56,7 +56,7 @@ int main() {
             "5: zadanie 5\n"
             "6: Wyjscie\n";
 
-    cout << "Wybrana opcja (1, 2, 3 lub 4): ";
+    cout << "Wybrana opcja: ";
     cin >> choice;
 
     if (menu) {
@@ -154,7 +154,7 @@ int main() {
                 return 0;
 
             default:
-                cout << "Wybor musi byc z przedzialu 1-5\n\n";
+                cout << "Wybor musi byc z przedzialu 1-6\n\n";
                 break;
         }
 
