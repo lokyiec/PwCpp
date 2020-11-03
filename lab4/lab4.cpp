@@ -25,7 +25,7 @@ void removeExtraSpaces(char* str, char* newstr) {
         c = str[i];
         if (isspace(c) && check==0) {
             newstr[index++] = str[i];
-            check=1;
+            check = 1;
         } else if (isalnum(c)) {
             newstr[index++] = str[i];
             check = 0;
@@ -82,7 +82,7 @@ int main() {
                     "*********** zadanie 3 ***********\n"
                     "*********************************\n\n";
 
-            char str[] = "I    am programing    in     c++";
+            char str[] = "I    am a student    of     the University of Rzeszow";
             char newstr[80];
 
             cout << str << "\n\n";

@@ -142,7 +142,7 @@ int main() {
             int zad5;
 
             cout << "Podaj liczbe naturalna: ";  cin >> zad5;
-            cout << "\nSilnia rekurencyjnie dla " << zad5 << " = " << factorial(zad5) << "\n\n";
+            cout << "\nSilnia rekurencyjnie dla " << zad5 << "! = " << factorial(zad5) << "\n\n";
 
             break;
 

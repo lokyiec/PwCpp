@@ -1,22 +1,103 @@
 #include <iostream>
 #include <math.h>
+#include <ctime>
 
 using namespace std;
 
-void printAllSubset(int *A, int len, int *B, int len2, int index) {
-    if (index >= len) {
-        for (int i = 0; i < len2; ++i) {
-            cout << B[i] << " ";
+void resztaMonteCarlo(int r) {
+    srand (time(NULL));
+    int MONETY[] = {500, 200, 100, 50, 20, 10, 5, 2, 1};
+    int LIMIT_WYDANYCH_MONET = 20;
+    int LICZBA_LOSOWAN = 20;
+    int minLiczbaWydanychMonet = LIMIT_WYDANYCH_MONET;
+    int wydaneMonety[LIMIT_WYDANYCH_MONET];
+    int minWydaneMonety[minLiczbaWydanychMonet];
+    int moneta;
+    for (int i = 0; i < LICZBA_LOSOWAN; i++) {
+        int liczbaWydanychMonet = 0;
+        while (r > 0 && liczbaWydanychMonet < LIMIT_WYDANYCH_MONET) {
+            moneta = MONETY[rand() % 9];
+            if (r >= moneta) {
+                wydaneMonety[liczbaWydanychMonet] = moneta;
+                r -= moneta;
+                liczbaWydanychMonet++;
+            }
         }
-        cout << "\n";
-
-        return;
+        if (minLiczbaWydanychMonet > liczbaWydanychMonet && liczbaWydanychMonet > 0) {
+            minLiczbaWydanychMonet = liczbaWydanychMonet;
+            for (int j = 0; j < minLiczbaWydanychMonet; j++) {
+                minWydaneMonety[j] = wydaneMonety[j];
+            }
+        }
     }
-    printAllSubset(A, len, B, len2, index+1);
-
-    B[len2] = A[index];
-    printAllSubset(A, len, B, len2+1, index+1);
+    if (minLiczbaWydanychMonet < LIMIT_WYDANYCH_MONET) {
+        cout << "Reszta: ";
+        for (int i = 0; i < minLiczbaWydanychMonet; i++) {
+            cout << minWydaneMonety[i] / 100.0 << " ";
+        }
+    } else {
+        cout << "Nie znalezniono rozwiazania";
+    }
 }
+
+
+void resztaZachlanny(int reszta) {
+    int M[] = {500, 200, 100, 50, 20, 10, 5, 2, 1}; int i = 0;
+    while (reszta > 0) {
+        if (reszta >= M[i]) {
+            cout << (M[i] / 100.0) << " ";
+            reszta -= M[i];
+        } else {
+            i++;
+        }
+    }
+}
+
+void printAllSubset(const char *znaki) {
+	cout << "{}" << "\n\n";
+
+	for (int i = 0; i < 4; ++i) {
+		cout << '{' << znaki[i] << "} ";
+	}
+
+	cout << "\n\n";
+
+
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 4; ++j) {
+			if (i != j) {
+				cout << '{' << znaki[i] << ", " << znaki[j] << "} ";
+			}
+		}
+	}
+
+	cout << "\n\n";
+
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 4; ++j) {
+			for (int k = 0; k < 4; ++k) {
+				if (i != j && i != k && j != k) {
+					cout << '{' << znaki[i] << ", " << znaki[j] << ", " << znaki[k] << "} ";
+				}
+			}
+		}
+	}
+
+	cout << "\n\n";
+
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 4; ++j) {
+			for (int k = 0; k < 4; ++k) {
+				for (int l = 0; l < 4; ++l) {
+					if (i != j && i != k && j != k && i != l && j != l && k != l) {
+						cout << '{' << znaki[i] << ", " << znaki[j] << ", " << znaki[k] << ", " << znaki[l] << "} ";
+					}
+				}
+			}
+		}
+	}
+}
+
 
 int fibb(int n) {
    if (n <= 1)  return n;
@@ -66,53 +147,6 @@ int newtonPD(int n, int k) {
     return newton[n][k];
 }
 
-void resztaZachlanny(int reszta) {
-    int M[] = {500, 200, 100, 50, 20, 10, 5, 2, 1}; int i = 0;
-    while (reszta > 0) {
-        if (reszta >= M[i]) {
-            cout << (M[i] / 100.0) << " ";
-            reszta -= M[i];
-        } else {
-            i++;
-        }
-    }
-}
-
-void resztaMonteCarlo(int r) {
-    srand (time(NULL));
-    int MONETY[] = {500, 200, 100, 50, 20, 10, 5, 2, 1};
-    int LIMIT_WYDANYCH_MONET = 20;
-    int LICZBA_LOSOWAN = 20;
-    int minLiczbaWydanychMonet = LIMIT_WYDANYCH_MONET;
-    int wydaneMonety[LIMIT_WYDANYCH_MONET];
-    int minWydaneMonety[minLiczbaWydanychMonet];
-    int moneta;
-    for (int i = 0; i < LICZBA_LOSOWAN; i++) {
-        int liczbaWydanychMonet = 0;
-        while (r > 0 && liczbaWydanychMonet < LIMIT_WYDANYCH_MONET) {
-            moneta = MONETY[rand() % 9];
-            if (r >= moneta) {
-                wydaneMonety[liczbaWydanychMonet] = moneta;
-                r -= moneta;
-                liczbaWydanychMonet++;
-            }
-        }
-        if (minLiczbaWydanychMonet > liczbaWydanychMonet && liczbaWydanychMonet > 0) {
-            minLiczbaWydanychMonet = liczbaWydanychMonet;
-            for (int j = 0; j < minLiczbaWydanychMonet; j++) {
-                minWydaneMonety[j] = wydaneMonety[j];
-            }
-        }
-    }
-    if (minLiczbaWydanychMonet < LIMIT_WYDANYCH_MONET) {
-        cout << "Reszta: ";
-        for (int i = 0; i < minLiczbaWydanychMonet; i++) {
-            cout << minWydaneMonety[i] / 100.0 << " ";
-        }
-    } else {
-        cout << "Nie znalezniono rozwiazania"; }
-    }
-
 int main() {
     int choice;
 
@@ -152,10 +186,9 @@ int main() {
 
             cout << "Generowanie wszystkich podzbiorow zbioru czteroelemntowego:\n";
 
-            int A[] = {1, 2, 3, 4};
-            int B[5] = {0};
+            char znaki[] = {'a', 'b', 'c', 'd'};
 
-            printAllSubset(A, 4, B, 0, 0);
+            printAllSubset(znaki);
             cout << "\n";
 
             break;
