@@ -14,12 +14,12 @@ float potega(float a, int b) {
     return x;
 }
 
-int suma(int num) {
+int suma(int num) { 
     if (num == 1) {
-        return 1;
+        return 1; 
     } else {
         return suma(num - 1) + num;
-    }
+    } 
 }
 
 int fib1(int n) {
@@ -59,7 +59,7 @@ int main() {
 
 
     switch (choice) {
-        case 1:
+        case 1: {
             cout << "\n*********************************\n"
                     "*********** zadanie 1 ***********\n"
                     "*********************************\n\n";
@@ -71,7 +71,18 @@ int main() {
             cout << "\n" << y1 << " do potegi " << y2 << " = " << potega(y1, y2) << "\n\n";
             cout << y1 << " + " << y2 << " = " << y1 + y2 << "\n\n";
 
+            int tab[] = {1, 2, 3, 4, 5, 6, 7, 8};
+            
+            for (int j = 0; j < sizeof(tab) / sizeof(tab[0]); ++j) {
+                cout << tab[j] << endl;
+            }
+
+            int x;
+            cout << "Podaj liczbe: "; cin >> x;
+            cout << "Suma(" << x << ") = " << suma(x) << "\n\n";
+
             break;
+        }
 
         case 2:
             cout << "\n*********************************\n"

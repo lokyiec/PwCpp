@@ -17,12 +17,34 @@ int main() {
     cout << "Wybrana opcja: "; cin >> choice;
 
 	switch (choice) {
-		case 1:
+		case 1: {
 			cout << "\n*********************************\n"
 					"*********** zadanie 1 ***********\n"
 					"*********************************\n\n";
 
+			int a, b; cin >> a; cin >> b; 
+			switch (b) {
+				case 0:
+					cout << "Nie mozna dzielić przez 0!" << endl;
+				default:
+					cout << "a/b = " << a / b << endl;
+			}
+
+			for (int i=1; i<=10; i++) {
+				cout << i << " iteracja petli\n";
+			}
+
+			int tablicaWartCalkowitych[10]; //zadeklarowanie tablicy liczb całkowitych
+			int tabWartCalk[3] = {1, 2, 3}; //deklaracja tablicy z jej inicjalizacją
+			int tWC[] = {1, 2, 3}; //przy deklaracji z inicjalizacją nie musimy podawać jej wielkosci
+
+			for (int i = 0; i < 3; i++) {
+    			cout << tWC[i] << endl;
+			}
+ 
+
 			break;
+		}
 
 		case 2: {
 			cout << "\n*********************************\n"
@@ -124,27 +146,27 @@ int main() {
 					"*********************************\n\n";
 
 			double x1, x2;
-			int operation;
+			char operation;
 
 			cout << "Podaj dwie liczby:\n";
 			cout << "a = "; cin >> x1;
 			cout << "b = "; cin >> x2;
-			cout << "Jakie dzialanie chcesz wykonac: 1 - suma, 2 - roznica, 3 - iloczyn, 4 - iloraz\n"; cin >> operation;
+			cout << "Jakie dzialanie chcesz wykonac: [+] - suma, [-] - roznica, [*] - iloczyn, [/] - iloraz\n"; cin >> operation;
 
 			switch (operation) {
-				case 1:
+				case '+':
 					cout << x1 << " + " << x2 << " = " << x1 + x2 << "\n";
 					break;
 
-				case 2:
+				case '-':
 					cout << x1 << " - " << x2 << " = " << x1 - x2 << "\n";
 					break;
 
-				case 3:
+				case '*':
 					cout << x1 << " * " << x2 << " = " << x1 * x2 << "\n";
 					break;
 
-				case 4:
+				case '/':
 					cout << x1 << " / " << x2 << " = " << x1 / x2 << "\n";
 					break;
 
